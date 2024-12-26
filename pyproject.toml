@@ -3,14 +3,23 @@ name = "DTransformer"
 version = "0.1.0"
 description = ""
 authors = ["Yu Yin <yxonic@gmail.com>"]
+packages = [ { include = "DTransformer" },]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.12"
-torch = "^1.13.1"
+torch = {version= "^1.13.1+cu117", source = "torch117"}
 numpy = "^1.23.1"
 tomlkit = "^0.11.4"
 scipy = "^1.10.0"
 scikit-learn = "^1.1.2"
+
+
+
+
+[[tool.poetry.source]]
+    name = "torch117"
+    url = "https://download.pytorch.org/whl/cu117"
+    priority = "explicit"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
